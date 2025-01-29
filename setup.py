@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="xml_to_python_generator",
-    version="1.0.0",
+    version="1.0.1",
     description="A Python tool for generating Python classes and scripts from XML files",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",

@@ -131,7 +131,7 @@ def generate_instance(
     if class_name not in defined_classes:
         defined_classes.add(class_name)
         define_class_code = define_class(class_name, potential_fields, element_counts)
-        with open(f"generated_code/{class_name.lower()}.py", "w") as file:
+        with open(f"generated_code/{class_name.lower()}.py", "w", encoding="utf-8") as file:
             file.write(f"from base_model import BaseModel\nimport pandas as pd\n\n{define_class_code}")
 
     # Create instance
@@ -204,7 +204,7 @@ def generate_python_code(xml_file: str, output_dir: str = "generated_code", gene
 
         # Define BaseModel class
         base_model_path = os.path.join(output_dir, "base_model.py")
-        with open(base_model_path, "w") as file:
+        with open(base_model_path, "w", encoding="utf-8") as file:
             file.write(
                 "\n".join([
                     "import pandas as pd",
@@ -227,7 +227,7 @@ def generate_python_code(xml_file: str, output_dir: str = "generated_code", gene
 
         # Generate main script
         main_script_path = os.path.join(output_dir, "generated_main.py")
-        with open(main_script_path, "w") as file:
+        with open(main_script_path, "w", encoding="utf-8") as file:
             imports = "\n".join([f"from {cls.lower()} import {cls}" for cls in defined_classes])
             file.write(f"{imports}\n\n# Instances\n")
             file.write("\n".join(instances))
